@@ -342,9 +342,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  sprintSpeed: 20
+  sprintSpeed: 10
+  airSpeed: 0.5
   acceleration: 5
   jumpHeight: 5
+  stamina: 100
+  staminaDepletion: 0.1
+  staminaRecovery: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
