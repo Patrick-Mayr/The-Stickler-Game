@@ -12,6 +12,7 @@ public class SticklerBoss : MonoBehaviour
     public float speed = 5;
     bool reverseMove = false;
     Transform nextPos;
+    public PlayerHealth playerHealthScript;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,16 @@ public class SticklerBoss : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, nextPos.position, speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+
+            playerHealthScript.health -= 15f;
+        }
+    }
+
 
 
     // Update is called once per frame

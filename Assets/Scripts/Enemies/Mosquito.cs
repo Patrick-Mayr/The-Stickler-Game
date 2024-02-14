@@ -14,11 +14,20 @@ public class Mosquito : MonoBehaviour
     bool goToA = true;
     float angleA;
     float angleB;
+    public PlayerHealth playerHealthScript; 
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = pointB.transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerHealthScript.health -= 5f;
+        }
     }
 
     // Update is called once per frame

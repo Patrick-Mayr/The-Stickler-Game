@@ -10,6 +10,7 @@ public class ScopianSpider : MonoBehaviour
     private Transform currentPosition;
     public float speed;
     bool moveToA;
+    public PlayerHealth playerHealthScript; 
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,15 @@ public class ScopianSpider : MonoBehaviour
         transform.position = pointA.transform.position;
         //rb = GetComponent<Rigidbody2D>();
         //currentPosition = pointB.transform;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+
+            playerHealthScript.health -= 5f;
+        }
     }
 
     // Update is called once per frame
