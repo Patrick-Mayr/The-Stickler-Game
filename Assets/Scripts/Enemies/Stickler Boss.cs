@@ -28,12 +28,12 @@ public class SticklerBoss : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, nextPos.position, speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
 
-            playerHealthScript.health -= 15f;
+            playerHealthScript.health -= 0.5f;
         }
     }
 

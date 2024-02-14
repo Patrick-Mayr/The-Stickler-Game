@@ -20,12 +20,12 @@ public class ScopianSpider : MonoBehaviour
         //currentPosition = pointB.transform;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
 
-            playerHealthScript.health -= 5f;
+            playerHealthScript.health -= 0.1f;
         }
     }
 
