@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float staminaDepletion;
     [SerializeField] float staminaRecovery;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private TextMeshProUGUI staminaDisplay;
     
     Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         Manager.SetGameControls();
         rb = GetComponent<Rigidbody2D>();
         staminaAmount = stamina;
+        staminaDisplay.text = "Stamina: " + staminaAmount;
     }
 
     // Update is called once per frame
@@ -103,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(staminaDepletion);
             staminaAmount--;
            //staminaAmount = Mathf.Clamp(staminaAmount, 0f, stamina);
-            Debug.Log("Deplete: " + staminaAmount.ToString());
+            //Debug.Log("Deplete: " + staminaAmount.ToString());
+            staminaDisplay.text = "Stamina: " + staminaAmount; 
         } 
 
         if (staminaAmount == 0f)
@@ -115,7 +119,8 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(staminaRecovery);
             staminaAmount++;
             //staminaAmount = Mathf.Clamp(staminaAmount, 0f, stamina);
-            Debug.Log("Recovery: " + staminaAmount.ToString());
+            //Debug.Log("Recovery: " + staminaAmount.ToString());
+            staminaDisplay.text = "Stamina: " + staminaAmount;
         } 
         yield return null;
     }
