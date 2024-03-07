@@ -29,6 +29,11 @@ public class Manager : MonoBehaviour
         {
             myPlayer.StopSprint();
         };
+
+        input.InGame.PauseGame.performed += ctx =>
+        {
+            myPlayer.PauseGame();
+        };
     }
 
     public static void SetGameControls()

@@ -15,9 +15,14 @@ public class PlayerHealth : MonoBehaviour
         health = 100f; 
     }
 
+    float ReturnPlayerHealth()
+    {
+        return health;
+    }
+
     void GameOver()
     {
-        //pause game function
+        
         //make screen pop up with game over, main menu button, and restart level button
         healthText.text = "Game Over";
     }

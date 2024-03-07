@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private bool isSprinting = false;
     float staminaAmount;
+
+
+
+    //pause menu stuff
+    public Image pauseMenu;
+    public Lvl1UI lvl1UIScript;
     
 
     // Start is called before the first frame update
@@ -96,6 +103,18 @@ public class PlayerMovement : MonoBehaviour
     {
         
         isSprinting = false;
+    }
+
+    public void PauseGame()
+    {
+        if (lvl1UIScript.gameOver == false)
+        {
+            //pause game time
+            Time.timeScale = 0;
+
+            //make pause menu pop up
+            pauseMenu.gameObject.SetActive(true);
+        }
     }
 
     public IEnumerator StaminaBar()
