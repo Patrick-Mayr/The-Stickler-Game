@@ -14,12 +14,15 @@ public class Mosquito : MonoBehaviour
     bool goToA = true;
     float angleA;
     float angleB;
-    public PlayerHealth playerHealthScript; 
+    public PlayerHealth playerHealthScript;
+
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = pointB.transform.position;
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -53,7 +56,7 @@ public class Mosquito : MonoBehaviour
 
 
 
-        if (distance <= attentionRadius)
+        if (distance <= attentionRadius && !playerMovement.GetCamo())
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             //enemy turns towards player

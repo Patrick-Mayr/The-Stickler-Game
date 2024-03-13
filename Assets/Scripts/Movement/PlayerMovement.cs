@@ -19,18 +19,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float staminaRecovery;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TextMeshProUGUI staminaDisplay;
-    
+
     Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool isSprinting = false;
     float staminaAmount;
 
-
+    bool hasShield;
+    bool hasCamo;
+    bool hasRepel;
 
     //pause menu stuff
     public Image pauseMenu;
     public Lvl1UI lvl1UIScript;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,17 +53,17 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, targetVelocity.x, acceleration * Time.deltaTime), rb.velocity.y);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), rb.velocity.y);
         }
-        else if (isSprinting && IsGrounded()) 
+        else if (isSprinting && IsGrounded())
         {
             Vector2 targetVelocity = new Vector2(moveDirection.x, 0.0f) * sprintSpeed;
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, targetVelocity.x, acceleration * Time.deltaTime), rb.velocity.y);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -sprintSpeed, sprintSpeed), rb.velocity.y);
         } else if (!isSprinting && !IsGrounded())
         {
-            Vector2 airMove = new Vector2 (moveDirection.x,0) * airSpeed ;
+            Vector2 airMove = new Vector2(moveDirection.x, 0) * airSpeed;
             rb.AddForce(airMove);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), rb.velocity.y);
-        } 
+        }
         else
         {
             Vector2 airMove = new Vector2(moveDirection.x, 0) * airSpeed;
@@ -72,11 +74,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMovementDirection(Vector2 currentDirection)
     {
-        moveDirection = currentDirection; 
+        moveDirection = currentDirection;
         if (currentDirection.x > 0)
         {
-            transform.localScale = new Vector3 (0.25f ,0.25f ,0.25f);
-        }else if (currentDirection.x < 0)
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        } else if (currentDirection.x < 0)
         {
             transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
         }
@@ -88,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce((Vector2.up * jumpHeight), ForceMode2D.Impulse);
         }
-        
+
     }
 
     public void Sprint()
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void StopSprint()
     {
-        
+
         isSprinting = false;
     }
 
@@ -119,35 +121,35 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator StaminaBar()
     {
-        
+
         while (isSprinting && staminaAmount > 0f)
         {
             yield return new WaitForSeconds(staminaDepletion);
             staminaAmount--;
-           //staminaAmount = Mathf.Clamp(staminaAmount, 0f, stamina);
+            //staminaAmount = Mathf.Clamp(staminaAmount, 0f, stamina);
             //Debug.Log("Deplete: " + staminaAmount.ToString());
-            staminaDisplay.text = "Stamina: " + staminaAmount; 
-        } 
+            staminaDisplay.text = "Stamina: " + staminaAmount;
+        }
 
         if (staminaAmount == 0f)
         {
             isSprinting = false;
-        }   
+        }
         while (!isSprinting && staminaAmount < stamina)
-        {          
+        {
             yield return new WaitForSeconds(staminaRecovery);
             staminaAmount++;
             //staminaAmount = Mathf.Clamp(staminaAmount, 0f, stamina);
             //Debug.Log("Recovery: " + staminaAmount.ToString());
             staminaDisplay.text = "Stamina: " + staminaAmount;
-        } 
+        }
         yield return null;
     }
 
     private bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, groundLayer);
-        
+
         if (hit.collider != null)
         {
             //Debug.Log("Grounded");
@@ -158,5 +160,33 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Not Grounded");
             return false;
         }
+    }
+
+    public bool GetShield()
+    {
+        return hasShield;
+    }
+    public void SetShield(bool shield)
+    {
+        hasShield = shield;
+    }
+
+    public bool GetCamo()
+    {
+        return hasCamo;
+    }
+    public void SetCamo(bool camo)
+    {
+        Debug.Log("set camo");
+        hasCamo = camo;
+    }
+
+    public bool GetRepel()
+    {
+        return hasRepel;
+    }
+    public void SetRepel(bool repel)
+    { 
+        hasRepel = repel;
     }
 }

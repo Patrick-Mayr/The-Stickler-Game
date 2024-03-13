@@ -7,8 +7,9 @@ public class ShieldPotion : Powerups
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("inheritance");
-        startHeight = transform.position.y;
+        playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        startHeight = transform.position.y; 
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

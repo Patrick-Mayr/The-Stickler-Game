@@ -9,9 +9,12 @@ public class Powerups : MonoBehaviour
     public float y;
     public float startHeight;
 
+    //protected GameObject player;
+    protected PlayerMovement playerMove;
+
     void Start()
     {
-        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
