@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     bool hasShield;
     bool hasCamo;
     bool hasRepel;
+     
+    PlayerHealth health;
 
     //pause menu stuff
     public Image pauseMenu;
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         staminaAmount = stamina;
         staminaDisplay.text = "Stamina: " + staminaAmount;
+        health = gameObject.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -168,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetShield(bool shield)
     {
+        Debug.Log("shield");
         hasShield = shield;
     }
 

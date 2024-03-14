@@ -14,6 +14,17 @@ public class ShieldPotion : Powerups
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("triggered from child");
+        playerMove.SetShield(true);
+        
+        StartCoroutine(powerupTimer());
+    }
+
+    private IEnumerator powerupTimer()
+    {
+        
+        yield return new WaitForSeconds(duration);
+        playerMove.SetShield(false);
+        
+        yield return null;
     }
 }
