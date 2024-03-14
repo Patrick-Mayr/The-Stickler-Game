@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     //pause menu stuff
     public Image pauseMenu;
     public Lvl1UI lvl1UIScript;
+  
 
 
     // Start is called before the first frame update
@@ -112,6 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void PauseGame()
     {
+
+
         if (lvl1UIScript.gameOver == false)
         {
             //pause game time
@@ -120,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
             //make pause menu pop up
             pauseMenu.gameObject.SetActive(true);
         }
+ 
     }
 
     public IEnumerator StaminaBar()

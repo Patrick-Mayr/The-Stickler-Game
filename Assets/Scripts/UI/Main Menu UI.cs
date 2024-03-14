@@ -14,7 +14,9 @@ public class MainMenuUI : MonoBehaviour
     public Button lvl3Button;
     public Image levelSelectMenu;
     public Image mainMenu;
-    public Button backButtion; 
+    public Button backButtion;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,9 @@ public class MainMenuUI : MonoBehaviour
         lvl2Button.onClick.AddListener(OnLvl2ButtonClick);
         lvl3Button.onClick.AddListener(OnLvl3ButtonClick);
         backButtion.onClick.AddListener(OnBackButtonClick);
+
         
+
     }
 
     void OnLevelSelectButtonClick()
@@ -41,16 +45,19 @@ public class MainMenuUI : MonoBehaviour
 
     void OnLvl1ButtonClick()
     {
+         
         SceneManager.LoadScene("SampleScene");
     }
 
     void OnLvl2ButtonClick()
     {
+        
         SceneManager.LoadScene("Level 2");
     }
 
     void OnLvl3ButtonClick()
     {
+         
         SceneManager.LoadScene("Level 3");
     }
 

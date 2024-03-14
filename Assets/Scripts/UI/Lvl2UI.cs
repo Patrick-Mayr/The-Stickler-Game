@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Lvl1UI : MonoBehaviour
+public class Lvl2UI : MonoBehaviour
 {
     public Button unpauseButton;
     public Button mainMenuButton;
@@ -16,13 +16,8 @@ public class Lvl1UI : MonoBehaviour
     public Button gameOverMainMenuButton;
     public Button restartLevelButton;
     public Button nextLevelButton;
-    public TextMeshProUGUI nextLevelButtonText; 
+    public TextMeshProUGUI nextLevelButtonText;
     public TextMeshProUGUI gameOverText;
-
-    
-
-    Scene currentScene;
-    string sceneName; 
 
 
     // Start is called before the first frame update
@@ -34,18 +29,13 @@ public class Lvl1UI : MonoBehaviour
         restartLevelButton.onClick.AddListener(OnRestartLevelButtonClick);
         nextLevelButton.onClick.AddListener(OnNextLevelButtonClick);
 
-
         Time.timeScale = 1;
-
-         
-
     }
 
     void OnUnpauseButtonClick()
     {
         Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
-        Debug.Log("unpause button clicked");
     }
 
     void OnMainMenuButtonClick()
@@ -57,27 +47,19 @@ public class Lvl1UI : MonoBehaviour
 
     void OnGameOverMainMenuButtonClick()
     {
-        
+
         gameOverMenu.gameObject.SetActive(false);
         SceneManager.LoadScene("Main Menu");
-       
+
     }
 
     void OnRestartLevelButtonClick()
     {
-        if (sceneName == "SampleScene")
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
-        else if(sceneName == "Level 2")
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-        else if (sceneName == "Level 3")
-        {
-            SceneManager.LoadScene("Level 3");
-        }
 
+
+
+
+        SceneManager.LoadScene("Level 2");
 
     }
 
@@ -87,24 +69,14 @@ public class Lvl1UI : MonoBehaviour
 
         //load next level scene
 
-        if (sceneName == "SampleScene")
-        {
-            
-            SceneManager.LoadScene("Level 2");
-            
-        }
-        if(sceneName == "Level 2")
-        {
-           
-            SceneManager.LoadScene("Level 3");
-            
-        }
-        
+
+        SceneManager.LoadScene("Level 3");
+
     }
 
     void GameOver()
     {
-        Time.timeScale = 0; 
+        Time.timeScale = 0;
         gameOverMenu.gameObject.SetActive(true);
         gameOver = false;
 
@@ -120,21 +92,14 @@ public class Lvl1UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerHealthScript.health <= 0)
         {
-            if (playerHealthScript.health <= 0)
-            {
-                gameOver = true;
-            }
-
-            if (gameOver == true && Time.timeScale == 1)
-            {
-                GameOver();
-            }
+            gameOver = true;
         }
 
-        currentScene = SceneManager.GetActiveScene();
-
-        sceneName = currentScene.name;
+        if (gameOver == true && Time.timeScale == 1)
+        {
+            GameOver();
+        }
     }
 }
