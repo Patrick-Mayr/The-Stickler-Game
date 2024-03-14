@@ -46,12 +46,12 @@ public class MainMenuUI : MonoBehaviour
 
     void OnLvl2ButtonClick()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level 2");
     }
 
     void OnLvl3ButtonClick()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level 3");
     }
 
     void OnBackButtonClick()

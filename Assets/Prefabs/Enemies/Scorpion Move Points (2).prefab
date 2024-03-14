@@ -57,7 +57,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.49, y: -4.178, z: -1}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6303056558151366828}
@@ -167,6 +167,7 @@ MonoBehaviour:
   pointB: {fileID: 8646942821913460565}
   speed: 1
   playerHealthScript: {fileID: 0}
+  player: {fileID: 0}
 --- !u!61 &6687964757242740232
 BoxCollider2D:
   m_ObjectHideFlags: 0
