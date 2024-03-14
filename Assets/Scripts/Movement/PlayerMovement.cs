@@ -171,8 +171,17 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetShield(bool shield)
     {
-        Debug.Log("shield");
-        hasShield = shield;
+        
+        if (shield == true)
+        {
+            Debug.Log("shield on");
+            hasShield = shield;
+        } 
+        else if (shield == false)
+        {
+            Debug.Log("coroutine");
+            StartCoroutine(shieldTimer());
+        }
     }
 
     public bool GetCamo()
@@ -192,5 +201,14 @@ public class PlayerMovement : MonoBehaviour
     public void SetRepel(bool repel)
     { 
         hasRepel = repel;
+    }
+
+    private IEnumerator shieldTimer()
+    {
+        
+        yield return new WaitForSeconds(2);
+        hasShield = false;
+        Debug.Log("shield off");
+        yield return null;
     }
 }

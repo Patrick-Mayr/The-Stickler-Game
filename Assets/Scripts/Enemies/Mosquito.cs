@@ -25,13 +25,20 @@ public class Mosquito : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if (collision.CompareTag("Player") && !playerMovement.GetShield())
+        if (collider.CompareTag("Player") && !playerMovement.GetShield())
         {
-            playerHealthScript.health -= 0.1f;
+            playerHealthScript.DealDamage(0.1f);
+            
+        } 
+        else if (collider.CompareTag("Player") && playerMovement.GetShield())
+        {
+            playerMovement.SetShield(false);
         }
     }
+
+    
 
     // Update is called once per frame
     void Update()

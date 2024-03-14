@@ -38,5 +38,10 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
+    } 
+
+    public void DealDamage(float damage)
+    {
+        health -= damage;
     }
 }

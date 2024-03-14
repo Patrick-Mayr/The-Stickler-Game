@@ -29,8 +29,12 @@ public class ScopianSpider : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !playerMovement.GetShield())
         {
+            playerHealthScript.DealDamage(0.1f);
 
-            playerHealthScript.health -= 0.1f;
+        }
+        else if (collision.CompareTag("Player") && playerMovement.GetShield())
+        {
+            playerMovement.SetShield(false);
         }
     }
 
