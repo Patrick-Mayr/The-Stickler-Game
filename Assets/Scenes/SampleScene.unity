@@ -5938,6 +5938,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 436575156}
   nextLevelButtonText: {fileID: 0}
   gameOverText: {fileID: 227524719}
+  levelCompleted: 0
 --- !u!1 &1399651183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9307,6 +9308,22 @@ PrefabInstance:
     - target: {fileID: 8068682435671133522, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
       propertyPath: m_Name
       value: TempGoal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068682435671133522, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165098326916178531, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275833497405644707, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684135941999450808, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

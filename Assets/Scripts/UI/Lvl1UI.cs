@@ -22,12 +22,17 @@ public class Lvl1UI : MonoBehaviour
     
 
     Scene currentScene;
-    string sceneName; 
+    string sceneName;
+
+    public bool levelCompleted; 
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
         unpauseButton.onClick.AddListener(OnUnpauseButtonClick);
         mainMenuButton.onClick.AddListener(OnMainMenuButtonClick);
         gameOverMainMenuButton.onClick.AddListener(OnGameOverMainMenuButtonClick);
@@ -99,6 +104,7 @@ public class Lvl1UI : MonoBehaviour
             SceneManager.LoadScene("Level 3");
             
         }
+
         
     }
 
@@ -115,7 +121,23 @@ public class Lvl1UI : MonoBehaviour
 
 
         }
+        else if(levelCompleted == true)
+        {
+            if (sceneName == "SampleScene" || sceneName == "Level 2")
+            {
+                gameOverText.text = "You beat the level!";
+                restartLevelButton.gameObject.SetActive(false);
+            }
+            else if(sceneName == "Level 3")
+            {
+                gameOverText.text = "You beat the Stickler!";
+                restartLevelButton.gameObject.SetActive(false);
+                nextLevelButton.gameObject.SetActive(false);
+            }
+        }
     }
+
+   
 
     // Update is called once per frame
     void Update()

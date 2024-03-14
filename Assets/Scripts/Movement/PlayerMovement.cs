@@ -215,4 +215,14 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("shield off");
         yield return null;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("levelend"))
+        {
+            lvl1UIScript.gameOver = true;
+            lvl1UIScript.levelCompleted = true;
+        }
+    }
+    
 }

@@ -2999,6 +2999,7 @@ MonoBehaviour:
   nextLevelButton: {fileID: 1021435661}
   nextLevelButtonText: {fileID: 1177900590}
   gameOverText: {fileID: 2031122380}
+  levelCompleted: 0
 --- !u!1001 &765950431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5733,7 +5734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1457249742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7049,6 +7050,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempGoal
       objectReference: {fileID: 0}
+    - target: {fileID: 8165098326916178531, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275833497405644707, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
+      objectReference: {fileID: 0}
     - target: {fileID: 8585263185016929639, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.401782
@@ -7064,6 +7073,10 @@ PrefabInstance:
     - target: {fileID: 8585263185016929639, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
       propertyPath: m_LocalPosition.y
       value: -8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684135941999450808, guid: 1a870ec9b6d4fdc4c979bdb4ad1ae388, type: 3}
+      propertyPath: m_TagString
+      value: levelend
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
