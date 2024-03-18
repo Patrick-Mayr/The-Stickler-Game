@@ -2508,6 +2508,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   staminaDisplay: {fileID: 1217793278}
+  knockback: 5
   pauseMenu: {fileID: 410022951}
   lvl1UIScript: {fileID: 1341010125}
 --- !u!212 &1111481221

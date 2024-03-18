@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     bool hasRepel;
      
     PlayerHealth health;
+    [SerializeField] private float knockback;
 
     //pause menu stuff
     public Image pauseMenu;
@@ -223,6 +224,13 @@ public class PlayerMovement : MonoBehaviour
             lvl1UIScript.gameOver = true;
             lvl1UIScript.levelCompleted = true;
         }
+    } 
+
+    public void Knockback()
+    {
+        
+        Vector2 knockbackAmount = new Vector2(knockback, 0.1f * knockback);
+        rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
     }
     
 }

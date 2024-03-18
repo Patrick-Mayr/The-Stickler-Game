@@ -18,6 +18,8 @@ public class Mosquito : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +27,17 @@ public class Mosquito : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.CompareTag("Player") && !playerMovement.GetShield())
+        if (collider.gameObject.tag == ("Player") && !playerMovement.GetShield())
         {
             playerHealthScript.DealDamage(0.1f);
+
+            Debug.Log(collider.contacts[0].normal.x);
+            Debug.Log(collider.contacts[0].normal.y);
             
         } 
-        else if (collider.CompareTag("Player") && playerMovement.GetShield())
+        else if (collider.gameObject.tag == ("Player") && playerMovement.GetShield())
         {
             playerMovement.SetShield(false);
         }
