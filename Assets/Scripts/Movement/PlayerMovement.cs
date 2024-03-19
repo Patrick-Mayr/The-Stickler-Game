@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     private Vector2 moveDirection;
     private bool isSprinting = false;
+    private bool hasKnockback = false;
     float staminaAmount;
 
     bool hasShield;
@@ -52,29 +53,35 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isSprinting && IsGrounded())
+        if (IsGrounded())
+        {
+            hasKnockback = false;
+        }
+
+        if (!isSprinting && IsGrounded() && !hasKnockback)
         {
             Vector2 targetVelocity = new Vector2(moveDirection.x, 0.0f) * speed;
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, targetVelocity.x, acceleration * Time.deltaTime), rb.velocity.y);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), rb.velocity.y);
         }
-        else if (isSprinting && IsGrounded())
+        else if (isSprinting && IsGrounded() && !hasKnockback)
         {
             Vector2 targetVelocity = new Vector2(moveDirection.x, 0.0f) * sprintSpeed;
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, targetVelocity.x, acceleration * Time.deltaTime), rb.velocity.y);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -sprintSpeed, sprintSpeed), rb.velocity.y);
-        } else if (!isSprinting && !IsGrounded())
+        } else if (!isSprinting && !IsGrounded() && !hasKnockback)
         {
             Vector2 airMove = new Vector2(moveDirection.x, 0) * airSpeed;
             rb.AddForce(airMove);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -speed, speed), rb.velocity.y);
         }
-        else
+        else if (isSprinting && !IsGrounded() && !hasKnockback)
         {
             Vector2 airMove = new Vector2(moveDirection.x, 0) * airSpeed;
             rb.AddForce(airMove);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -sprintSpeed, sprintSpeed), rb.velocity.y);
-        }
+        } 
+        
     }
 
     public void SetMovementDirection(Vector2 currentDirection)
@@ -226,11 +233,15 @@ public class PlayerMovement : MonoBehaviour
         }
     } 
 
-    public void Knockback()
+    public void Knockback(Collision2D collision)
     {
-        
-        Vector2 knockbackAmount = new Vector2(knockback, 0.1f * knockback);
-        rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
+        hasKnockback = true; 
+
+        Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.1f * knockback);
+        Debug.Log(knockbackAmount.x);
+        rb.AddForce(knockbackAmount, ForceMode2D.Impulse); 
+
+
     }
     
 }

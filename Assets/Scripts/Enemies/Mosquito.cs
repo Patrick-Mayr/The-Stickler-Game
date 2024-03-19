@@ -35,7 +35,7 @@ public class Mosquito : MonoBehaviour
 
             Debug.Log(collider.contacts[0].normal.x);
             Debug.Log(collider.contacts[0].normal.y);
-            
+            playerMovement.Knockback(collider);
         } 
         else if (collider.gameObject.tag == ("Player") && playerMovement.GetShield())
         {
