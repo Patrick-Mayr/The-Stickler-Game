@@ -2508,7 +2508,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   staminaDisplay: {fileID: 1217793278}
-  knockback: 5
+  knockback: 40
   pauseMenu: {fileID: 410022951}
   lvl1UIScript: {fileID: 1341010125}
 --- !u!212 &1111481221
@@ -5538,6 +5538,10 @@ PrefabInstance:
     - target: {fileID: 6687964757242740232, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
       propertyPath: m_Offset.y
       value: 0.1570324
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687964757242740232, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066462400947465284, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
       propertyPath: m_LocalScale.x

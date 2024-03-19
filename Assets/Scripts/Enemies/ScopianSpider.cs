@@ -25,14 +25,14 @@ public class ScopianSpider : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player") && !playerMovement.GetShield())
+        if (collision.gameObject.tag == ("Player") && !playerMovement.GetShield())
         {
             playerHealthScript.DealDamage(0.1f);
-
+            playerMovement.Knockback(collision);
         }
-        else if (collision.CompareTag("Player") && playerMovement.GetShield())
+        else if (collision.gameObject.tag == ("Player") && playerMovement.GetShield())
         {
             playerMovement.SetShield(false);
         }

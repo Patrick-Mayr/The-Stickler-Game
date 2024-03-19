@@ -27,17 +27,14 @@ public class Mosquito : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider.gameObject.tag == ("Player") && !playerMovement.GetShield())
+        if (collision.gameObject.tag == ("Player") && !playerMovement.GetShield())
         {
-            playerHealthScript.DealDamage(0.1f);
-
-            Debug.Log(collider.contacts[0].normal.x);
-            Debug.Log(collider.contacts[0].normal.y);
-            playerMovement.Knockback(collider);
+            playerHealthScript.DealDamage(0.1f);       
+            playerMovement.Knockback(collision);
         } 
-        else if (collider.gameObject.tag == ("Player") && playerMovement.GetShield())
+        else if (collision.gameObject.tag == ("Player") && playerMovement.GetShield())
         {
             playerMovement.SetShield(false);
         }
