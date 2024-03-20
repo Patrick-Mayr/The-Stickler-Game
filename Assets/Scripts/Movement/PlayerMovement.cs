@@ -235,12 +235,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void Knockback(Collision2D collision)
     {
-        hasKnockback = true; 
-
-        Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.1f * knockback);
-        Debug.Log(knockbackAmount.x);
-        rb.AddForce(knockbackAmount, ForceMode2D.Impulse); 
-
+        hasKnockback = true;
+        if (IsGrounded())
+        {
+            Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.1f * knockback);
+            
+            rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
+        }
+            else if(!IsGrounded())
+        {
+            if (collision.contacts[0].normal.y < 0) 
+            {
+                Vector2 knockbackAmount = new Vector2( -knockback * 0.1f, knockback * 0.1f);
+                
+                rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
+            }
+            
+        } 
+        
 
     }
     
