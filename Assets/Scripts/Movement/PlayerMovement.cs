@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
     //pause menu stuff
     public Image pauseMenu;
     public Lvl1UI lvl1UIScript;
+
+    //HUD stuff
+    public Slider staminaBar; 
   
 
 
@@ -80,8 +83,9 @@ public class PlayerMovement : MonoBehaviour
             Vector2 airMove = new Vector2(moveDirection.x, 0) * airSpeed;
             rb.AddForce(airMove);
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -sprintSpeed, sprintSpeed), rb.velocity.y);
-        } 
-        
+        }
+
+        staminaBar.value = staminaAmount / 100f;
     }
 
     public void SetMovementDirection(Vector2 currentDirection)
