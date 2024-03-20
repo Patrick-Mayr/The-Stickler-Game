@@ -242,11 +242,11 @@ public class PlayerMovement : MonoBehaviour
             
             rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
         }
-            else if(!IsGrounded())
+        else if(!IsGrounded())
         {
             if (collision.contacts[0].normal.y < 0) 
             {
-                Vector2 knockbackAmount = new Vector2( -knockback * 0.1f, knockback * 0.1f);
+                Vector2 knockbackAmount = new Vector2( -knockback * 0.075f, knockback * 0.1f);
                 
                 rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
             }
