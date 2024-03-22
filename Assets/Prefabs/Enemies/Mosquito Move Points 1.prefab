@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.39, y: 0.21, z: -0.074160665}
-  m_LocalScale: {x: 0.24980476, y: 0.3434035, z: 2}
+  m_LocalScale: {x: -0.2498048, y: 0.3434035, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3655255508438590651}
@@ -104,7 +104,6 @@ MonoBehaviour:
   pointA: {fileID: 9221166008584648498}
   pointB: {fileID: 5100262855767443526}
   playerHealthScript: {fileID: 0}
-  knockback: 4
 --- !u!61 &4953465594930274925
 BoxCollider2D:
   m_ObjectHideFlags: 0
