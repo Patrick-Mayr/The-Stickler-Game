@@ -15,6 +15,8 @@ public class ScopianSpider : MonoBehaviour
     private PlayerMovement playerMovement;
     public GameObject player;
 
+    bool facingLeft = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,13 @@ public class ScopianSpider : MonoBehaviour
         }
     }
 
+    public void ChangeFacingDirection()
+    {
+        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,24 +54,36 @@ public class ScopianSpider : MonoBehaviour
 
         if (Vector2.Distance(transform.position, pointB.transform.position) <= 0.1f)
         {
-            moveToA = true; 
-            
+            moveToA = true;
+            if (!facingLeft)
+            {
+                facingLeft = true;
+                ChangeFacingDirection();
+            }
+
         }
         else if(Vector2.Distance(transform.position, pointA.transform.position) <= 0.1f)
         {
             moveToA = false;
-            
+            if (facingLeft)
+            {
+                facingLeft = false;
+                ChangeFacingDirection();
+            }
         }
 
         if (moveToA == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, pointA.transform.position, speed * Time.deltaTime);
+            
         }
         else if(moveToA == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, pointB.transform.position, speed * Time.deltaTime);
+            
         }
 
+        
         
     }
 }

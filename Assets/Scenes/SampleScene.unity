@@ -3690,6 +3690,7 @@ GameObject:
   - component: {fileID: 1217983551}
   - component: {fileID: 1217983553}
   - component: {fileID: 1217983552}
+  - component: {fileID: 1217983554}
   m_Layer: 5
   m_Name: Powerup3
   m_TagString: Untagged
@@ -3714,7 +3715,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 300.00012, y: -119.99997}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217983552
 MonoBehaviour:
@@ -3736,7 +3737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a3d37f7dbec5d404886af991490e6e95, type: 3}
+  m_Sprite: {fileID: 603508442, guid: ec5d127a03a5240388fff5dcd7a2c1e4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3754,6 +3755,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217983550}
   m_CullTransparentMesh: 1
+--- !u!95 &1217983554
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217983550}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bc97b282796f491f92242b732c746cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1249481267
 GameObject:
   m_ObjectHideFlags: 0
@@ -5527,8 +5549,16 @@ PrefabInstance:
       value: -2.78
       objectReference: {fileID: 0}
     - target: {fileID: 6303056558151366828, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5999432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303056558151366828, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303056558151366828, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6687964757242740232, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
       propertyPath: m_Size.y
