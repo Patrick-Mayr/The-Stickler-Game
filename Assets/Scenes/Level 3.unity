@@ -2604,6 +2604,7 @@ GameObject:
   - component: {fileID: 639715611}
   - component: {fileID: 639715613}
   - component: {fileID: 639715612}
+  - component: {fileID: 639715614}
   m_Layer: 5
   m_Name: Powerup2
   m_TagString: Untagged
@@ -2650,7 +2651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72bbc561bdf1fa74e8733462dc5436ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09749866339c144d8914f2b93442f56d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2668,6 +2669,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639715610}
   m_CullTransparentMesh: 1
+--- !u!95 &639715614
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639715610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60c5ec654c82d430e8959054094573d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &655594870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7658,7 +7680,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 300.00012, y: -119.999954}
-  m_SizeDelta: {x: 90, y: 90}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1862483181
 Animator:
@@ -7670,7 +7692,7 @@ Animator:
   m_GameObject: {fileID: 1862483179}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3bc97b282796f491f92242b732c746cc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 938ebb653fb5b431e8a6635b384580a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7701,7 +7723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 603508442, guid: ec5d127a03a5240388fff5dcd7a2c1e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9d4eec1c9e7a407b951de5f9a0876f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
