@@ -66,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             hasKnockback = false;
+            player.SetBool("Damage", hasKnockback);
+
             jump = false;
             player.SetBool("Jump", jump);
         }
@@ -127,12 +129,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Sprint()
     {
-        run = true;
-        player.SetBool("Run", run);
+        
         if (IsGrounded())
         {
             isSprinting = true;
             StartCoroutine(StaminaBar());
+
+            run = true;
+            player.SetBool("Run", run);
         }
     }
     public void StopSprint()
@@ -259,6 +263,7 @@ public class PlayerMovement : MonoBehaviour
     public void Knockback(Collision2D collision)
     {
         hasKnockback = true;
+        player.SetBool("Damage", hasKnockback);
         if (IsGrounded())
         {
             Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.1f * knockback);
