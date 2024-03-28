@@ -31,7 +31,7 @@ public class Mosquito : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player") && !playerMovement.GetShield())
         {
-            playerHealthScript.DealDamage(0.1f);       
+            playerHealthScript.DealDamage(10f);       
             playerMovement.Knockback(collision);
         } 
         else if (collision.gameObject.tag == ("Player") && playerMovement.GetShield())
