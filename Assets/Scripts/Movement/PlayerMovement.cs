@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.Build;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private bool hasKnockback = false;
     float staminaAmount;
 
+   [SerializeField] private Animator player = new Animator();
+
     bool hasShield;
     bool hasCamo;
     bool hasRepel;
@@ -38,9 +41,13 @@ public class PlayerMovement : MonoBehaviour
     public Lvl1UI lvl1UIScript;
 
     //HUD stuff
-    public Slider staminaBar; 
-  
+    public Slider staminaBar;
 
+    private bool idle;
+    private bool walk;
+    private bool run;
+    private bool jump;
+    private bool damage;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             hasKnockback = false;
+            jump = false;
+            player.SetBool("Jump", jump);
         }
 
         if (!isSprinting && IsGrounded() && !hasKnockback)
@@ -97,6 +106,11 @@ public class PlayerMovement : MonoBehaviour
         } else if (currentDirection.x < 0)
         {
             transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+        } 
+
+        if (currentDirection.x != 0)
+        {
+
         }
     }
 
@@ -104,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
+            jump = true;
+            player.SetBool("Jump", jump);
             rb.AddForce((Vector2.up * jumpHeight), ForceMode2D.Impulse);
         }
 
@@ -111,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Sprint()
     {
+        run = true;
+        player.SetBool("Run", run);
         if (IsGrounded())
         {
             isSprinting = true;
@@ -119,7 +137,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void StopSprint()
     {
-
+        run = false;
+        player.SetBool("Run", run);
         isSprinting = false;
     }
 

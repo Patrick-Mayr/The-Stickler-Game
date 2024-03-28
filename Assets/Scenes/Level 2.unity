@@ -3116,6 +3116,7 @@ GameObject:
   - component: {fileID: 969485243}
   - component: {fileID: 969485242}
   - component: {fileID: 969485241}
+  - component: {fileID: 969485247}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3234,6 +3235,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   staminaDisplay: {fileID: 2103295179}
+  player: {fileID: 969485247}
   knockback: 40
   pauseMenu: {fileID: 1472193308}
   lvl1UIScript: {fileID: 1575212177}
@@ -3305,6 +3307,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &969485247
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969485240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c697041591e09f4789ddd3e70ada63d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &973049589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 35814198858376202, guid: 07d7c1e46d1ed7b4d850a602b624d007, type: 3}
