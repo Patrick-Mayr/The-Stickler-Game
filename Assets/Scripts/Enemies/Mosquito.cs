@@ -18,6 +18,8 @@ public class Mosquito : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    bool facingLeft = false; 
+
     
 
     // Start is called before the first frame update
@@ -40,7 +42,12 @@ public class Mosquito : MonoBehaviour
         }
     }
 
-    
+    public void ChangeFacingDirection()
+    {
+        transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,13 +57,13 @@ public class Mosquito : MonoBehaviour
         direction.Normalize();
 
         //angle between player and enemy
-        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(-direction.y, direction.x) * Mathf.Rad2Deg;
 
 
         Vector2 directionA = pointA.transform.position - transform.position;
         directionA.Normalize();
         //angle between enemy and point A
-        angleA = Mathf.Atan2(directionA.y, directionA.x) * Mathf.Rad2Deg;
+        angleA = Mathf.Atan2(-directionA.y, directionA.x) * Mathf.Rad2Deg;
 
         Vector2 directionB = pointB.transform.position - transform.position;
         directionB.Normalize();
@@ -77,19 +84,31 @@ public class Mosquito : MonoBehaviour
             if (goToA == true)
             {
                 transform.position = Vector2.MoveTowards(transform.position, pointA.transform.position, speed * Time.deltaTime);
-                transform.rotation = Quaternion.Euler(Vector3.forward * angleA);
+                //transform.rotation = Quaternion.Euler(Vector3.forward * angleA);
                 if (Vector2.Distance(transform.position, pointA.transform.position) <= 0.5f)
                 {
                     goToA = false;
                 }
+
+                if (!facingLeft)
+                {
+                    facingLeft = true;
+                    ChangeFacingDirection();
+                }
             }
             else if (goToA == false)
             {
-                transform.rotation = Quaternion.Euler(Vector3.forward * angleB);
+                //transform.rotation = Quaternion.Euler(Vector3.forward * angleB);
                 transform.position = Vector2.MoveTowards(transform.position, pointB.transform.position, speed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, pointB.transform.position) <= 0.5f)
                 {
                     goToA = true;
+                }
+
+                if (facingLeft)
+                {
+                    facingLeft = false;
+                    ChangeFacingDirection();
                 }
             }
 
