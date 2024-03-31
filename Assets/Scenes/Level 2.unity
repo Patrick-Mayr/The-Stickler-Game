@@ -611,9 +611,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1542281026}
     m_Modifications:
+    - target: {fileID: 384794442083462628, guid: fc56b3f8e457d4459ad29d89e14193a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.65
+      objectReference: {fileID: 0}
     - target: {fileID: 3220144051827422885, guid: fc56b3f8e457d4459ad29d89e14193a3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22326516
+      value: -0.2232652
       objectReference: {fileID: 0}
     - target: {fileID: 3220144051827422885, guid: fc56b3f8e457d4459ad29d89e14193a3, type: 3}
       propertyPath: m_LocalScale.y
@@ -635,6 +639,10 @@ PrefabInstance:
       propertyPath: playerHealthScript
       value: 
       objectReference: {fileID: 969485241}
+    - target: {fileID: 3595828093464108418, guid: fc56b3f8e457d4459ad29d89e14193a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.89
+      objectReference: {fileID: 0}
     - target: {fileID: 3655255508438590651, guid: fc56b3f8e457d4459ad29d89e14193a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.3
@@ -3175,7 +3183,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 7.2}
+    oldSize: {x: 20.48, y: 20.48}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
