@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mosquito : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
+    
     public float speed;
     float angle;
     private float distance;
@@ -14,8 +15,8 @@ public class Mosquito : MonoBehaviour
     bool goToA = true;
     float angleA;
     float angleB;
-    public PlayerHealth playerHealthScript;
-
+    
+    private PlayerHealth playerHealthScript;
     private PlayerMovement playerMovement;
 
     bool facingLeft = false; 
@@ -25,8 +26,11 @@ public class Mosquito : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         transform.position = pointB.transform.position;
+        
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerHealthScript = player.GetComponent<PlayerHealth>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

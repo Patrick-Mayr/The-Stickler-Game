@@ -5840,6 +5840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2281067636003404946, guid: f441e536a5d11479ab70d88568c93d5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6153270977524159112, guid: f441e536a5d11479ab70d88568c93d5a, type: 3}
       propertyPath: shieldImage
       value: 

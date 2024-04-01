@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +10,11 @@ public class ScopianSpider : MonoBehaviour
     private Transform currentPosition;
     public float speed;
     bool moveToA;
-    public PlayerHealth playerHealthScript;
+    private PlayerHealth playerHealthScript;
 
     private PlayerMovement playerMovement;
-    public GameObject player;
-
+    
+    private GameObject player;
     bool facingLeft = true;
 
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class ScopianSpider : MonoBehaviour
         //currentPosition = pointB.transform;
         player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerHealthScript = player.GetComponent<PlayerHealth>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
