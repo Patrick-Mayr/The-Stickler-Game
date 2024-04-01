@@ -114,7 +114,7 @@ public class Lvl1UI : MonoBehaviour
         gameOverMenu.gameObject.SetActive(true);
         gameOver = false;
 
-        if (playerHealthScript.health <= 0)
+        if (levelCompleted != true)
         {
             gameOverText.text = "You died!";
             nextLevelButton.gameObject.SetActive(false);

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class CamoPotion : Powerups
 {
     [SerializeField] private float timer;
-    public Image camoImage; 
+    public Image camoImage;
+    bool camoUsed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,16 @@ public class CamoPotion : Powerups
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (camoUsed == false)
+        {
+            playerMove.SetCamo(true);
+            camoImage.gameObject.SetActive(true);
+            Debug.Log("camo on");
+            StartCoroutine(powerupTimer());
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false; 
+        }
         
-        playerMove.SetCamo(true);
-        camoImage.gameObject.SetActive(true);
-        Debug.Log("camo on");
-        StartCoroutine(powerupTimer());
 
     } 
 
@@ -34,5 +40,7 @@ public class CamoPotion : Powerups
         camoImage.gameObject.SetActive(false);
         Debug.Log("Camo off");
         yield return null;
+
+        
     }
 }

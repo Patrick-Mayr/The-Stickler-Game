@@ -258,7 +258,22 @@ public class PlayerMovement : MonoBehaviour
             lvl1UIScript.gameOver = true;
             lvl1UIScript.levelCompleted = true;
         }
-    } 
+
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            lvl1UIScript.gameOver = true;
+            Debug.Log("You hit spikes");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            lvl1UIScript.gameOver = true;
+            Debug.Log("You fell out of the map");
+        }
+    }
 
     public void Knockback(Collision2D collision)
     {
