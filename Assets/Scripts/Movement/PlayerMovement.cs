@@ -115,7 +115,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentDirection.x != 0)
         {
-
+            run = true;
+            player.SetBool("Run", run);
+        }
+        else
+        {
+            run = false;
+            player.SetBool("Run", run);
         }
     }
 
@@ -138,14 +144,12 @@ public class PlayerMovement : MonoBehaviour
             isSprinting = true;
             StartCoroutine(StaminaBar());
 
-            run = true;
-            player.SetBool("Run", run);
+            
         }
     }
     public void StopSprint()
     {
-        run = false;
-        player.SetBool("Run", run);
+        
         isSprinting = false;
     }
 
