@@ -42,12 +42,14 @@ public class PlayerMovement : MonoBehaviour
 
     //HUD stuff
     public Slider staminaBar;
+    public Image shieldImage;
 
     private bool idle;
     private bool walk;
     private bool run;
     private bool jump;
     private bool damage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         staminaAmount = stamina;
         staminaDisplay.text = "Stamina: " + staminaAmount;
         health = gameObject.GetComponent<PlayerHealth>();
+        
     }
 
     // Update is called once per frame
@@ -248,6 +251,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2);
         hasShield = false;
         Debug.Log("shield off");
+
+        shieldImage.gameObject.SetActive(false);
         yield return null;
     }
 

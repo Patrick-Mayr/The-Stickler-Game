@@ -21,7 +21,7 @@ public class ShieldPotion : Powerups
 
         shieldImage.gameObject.SetActive(true);
         
-        StartCoroutine(powerupTimer());
+        //StartCoroutine(powerupTimer());
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
@@ -30,7 +30,7 @@ public class ShieldPotion : Powerups
     private IEnumerator powerupTimer()
     {
         
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(2);
         playerMove.SetShield(false);
 
         shieldImage.gameObject.SetActive(false);

@@ -3506,6 +3506,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1472193308}
   lvl1UIScript: {fileID: 1575212177}
   staminaBar: {fileID: 1218315559}
+  shieldImage: {fileID: 1129456196}
 --- !u!212 &969485245
 SpriteRenderer:
   m_ObjectHideFlags: 0

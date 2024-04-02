@@ -19,15 +19,13 @@ public class CamoPotion : Powerups
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (camoUsed == false)
-        {
-            playerMove.SetCamo(true);
-            camoImage.gameObject.SetActive(true);
-            Debug.Log("camo on");
-            StartCoroutine(powerupTimer());
-            GetComponent<Collider2D>().enabled = false;
-            GetComponent<SpriteRenderer>().enabled = false; 
-        }
+        playerMove.SetCamo(true);
+        camoImage.gameObject.SetActive(true);
+        Debug.Log("camo on");
+        StartCoroutine(powerupTimer());
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false; 
+        
         
 
     } 
