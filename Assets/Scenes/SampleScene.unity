@@ -3345,7 +3345,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   staminaDisplay: {fileID: 1217793278}
-  player: {fileID: 0}
+  player: {fileID: 1111481224}
   knockback: 40
   pauseMenu: {fileID: 410022951}
   lvl1UIScript: {fileID: 1341010125}
