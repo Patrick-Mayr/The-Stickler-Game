@@ -4473,15 +4473,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7355537266185116023, guid: d2293747b00164047af3504f6b7cd0b0, type: 3}
       propertyPath: m_Color.b
-      value: 0.41411534
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7355537266185116023, guid: d2293747b00164047af3504f6b7cd0b0, type: 3}
       propertyPath: m_Color.g
-      value: 0.41411534
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7355537266185116023, guid: d2293747b00164047af3504f6b7cd0b0, type: 3}
       propertyPath: m_Color.r
-      value: 0.4245283
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7852448699703512071, guid: d2293747b00164047af3504f6b7cd0b0, type: 3}
       propertyPath: m_Color.b
