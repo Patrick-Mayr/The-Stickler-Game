@@ -242,7 +242,8 @@ public class PlayerMovement : MonoBehaviour
         else if (shield == false)
         {
             Debug.Log("coroutine");
-            StartCoroutine(shieldTimer());
+            shieldImage.gameObject.SetActive(false);
+            //StartCoroutine(shieldTimer());
         }
     }
 
