@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.down) * hit.distance, Color.red);
 
         if (hit.collider != null)
@@ -329,16 +329,16 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public IEnumerator KnockbackOnGround()
-    {
-        yield return new WaitForSeconds(0.1f);
+    //public IEnumerator KnockbackOnGround()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
 
-        hasKnockback = true;
+    //    hasKnockback = true;
 
-        damage = true;
-        player.SetBool("Damage", damage);
+    //    damage = true;
+    //    player.SetBool("Damage", damage);
 
-        yield return null;
-    }
+    //    yield return null;
+    //}
     
 }
