@@ -71,8 +71,8 @@ public class PlayerMovement : MonoBehaviour
             
             
 
-            jump = false;
-            player.SetBool("Jump", jump); 
+            //jump = false;
+            //player.SetBool("Jump", jump); 
 
         }
 
@@ -107,9 +107,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(IsGrounded() && hasKnockback)
         {
-            hasKnockback = false;
-            damage = false;
-            player.SetBool("Damage", damage);
+            //hasKnockback = false;
+            //damage = false;
+            //player.SetBool("Damage", damage);
 
         }
     }
@@ -289,6 +289,23 @@ public class PlayerMovement : MonoBehaviour
         {
             lvl1UIScript.gameOver = true;
             Debug.Log("You hit spikes");
+        } 
+
+        if (IsGrounded() )
+        {
+            jump = false;
+            player.SetBool("Jump", jump);
+            
+            hasKnockback = false;
+            
+
+            if (collision.gameObject.tag != ("Enemy"))
+            {
+                
+                damage = false;
+                player.SetBool("Damage", damage);
+
+            }                                   
         }
     }
 

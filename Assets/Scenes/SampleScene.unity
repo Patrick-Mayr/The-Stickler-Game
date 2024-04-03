@@ -5026,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scorpian Move Points (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5169542152415331943, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6205471728488472541, guid: bc34972a66cfd4fcf99d9a770803c96f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.21

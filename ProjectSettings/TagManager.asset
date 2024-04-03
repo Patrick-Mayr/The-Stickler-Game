@@ -6,6 +6,7 @@ TagManager:
   tags:
   - levelend
   - Death
+  - Enemy
   layers:
   - Default
   - TransparentFX
