@@ -2820,7 +2820,7 @@ MonoBehaviour:
   jumpHeight: 10
   stamina: 100
   staminaDepletion: 0.1
-  staminaRecovery: 1
+  staminaRecovery: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
