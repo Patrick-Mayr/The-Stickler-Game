@@ -37,6 +37,7 @@ public class ScopianSpider : MonoBehaviour
         }
         else if (collision.gameObject.tag == ("Player") && playerMovement.GetShield())
         {
+            playerMovement.Knockback(collision);
             playerMovement.SetShield(false);
         }
     }

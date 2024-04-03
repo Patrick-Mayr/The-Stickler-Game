@@ -243,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("coroutine");
             shieldImage.gameObject.SetActive(false);
+            hasShield = false;
             //StartCoroutine(shieldTimer());
         }
     }
@@ -270,7 +271,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         yield return new WaitForSeconds(2);
-        hasShield = false;
+        
         Debug.Log("shield off");
 
         shieldImage.gameObject.SetActive(false);
