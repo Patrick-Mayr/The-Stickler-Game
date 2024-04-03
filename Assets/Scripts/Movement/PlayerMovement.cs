@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public Image shieldImage;
 
     private bool idle;
-    private bool walk;
+    
     private bool run;
     private bool jump;
     private bool damage;
@@ -68,11 +68,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            hasKnockback = false;
-            player.SetBool("Damage", hasKnockback);
+            
+            
 
             jump = false;
-            player.SetBool("Jump", jump);
+            player.SetBool("Jump", jump); 
+
         }
 
         if (!isSprinting && IsGrounded() && !hasKnockback)
@@ -102,6 +103,17 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.value = staminaAmount / 100f;
     }
 
+    private void LateUpdate()
+    {
+        if(IsGrounded() && hasKnockback)
+        {
+            hasKnockback = false;
+            damage = false;
+            player.SetBool("Damage", damage);
+
+        }
+    }
+
     public void SetMovementDirection(Vector2 currentDirection)
     {
         moveDirection = currentDirection;
@@ -117,11 +129,13 @@ public class PlayerMovement : MonoBehaviour
         {
             run = true;
             player.SetBool("Run", run);
+
         }
         else
         {
             run = false;
             player.SetBool("Run", run);
+
         }
     }
 
@@ -131,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             player.SetBool("Jump", jump);
+
             rb.AddForce((Vector2.up * jumpHeight), ForceMode2D.Impulse);
         }
 
@@ -198,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, groundLayer);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.down) * hit.distance, Color.red);
 
         if (hit.collider != null)
         {
@@ -287,12 +303,16 @@ public class PlayerMovement : MonoBehaviour
     public void Knockback(Collision2D collision)
     {
         hasKnockback = true;
-        player.SetBool("Damage", hasKnockback);
+
+        damage = true;
+        player.SetBool("Damage", damage);
+
         if (IsGrounded())
         {
-            Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.1f * knockback);
-            
+            Vector2 knockbackAmount = new Vector2(-collision.contacts[0].normal.x * knockback, 0.2f * knockback);
             rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
+
+            //StartCoroutine(KnockbackOnGround());
         }
         else if(!IsGrounded())
         {
@@ -301,11 +321,24 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 knockbackAmount = new Vector2( -knockback * 0.075f, knockback * 0.1f);
                 
                 rb.AddForce(knockbackAmount, ForceMode2D.Impulse);
+                
             }
             
         } 
         
 
+    }
+
+    public IEnumerator KnockbackOnGround()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        hasKnockback = true;
+
+        damage = true;
+        player.SetBool("Damage", damage);
+
+        yield return null;
     }
     
 }
