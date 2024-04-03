@@ -19,7 +19,9 @@ public class Lvl1UI : MonoBehaviour
     public TextMeshProUGUI nextLevelButtonText; 
     public TextMeshProUGUI gameOverText;
 
-    
+    public Image youDiedHeader;
+    public Image youBeatLvlHeader;
+    public Image youBeatSticklerHeader;
 
     Scene currentScene;
     string sceneName;
@@ -116,7 +118,8 @@ public class Lvl1UI : MonoBehaviour
 
         if (levelCompleted != true)
         {
-            gameOverText.text = "You died!";
+            youDiedHeader.gameObject.SetActive(true);
+            //meOverText.text = "You died!";
             nextLevelButton.gameObject.SetActive(false);
 
 
@@ -125,12 +128,14 @@ public class Lvl1UI : MonoBehaviour
         {
             if (sceneName == "SampleScene" || sceneName == "Level 2")
             {
-                gameOverText.text = "You beat the level!";
+                youBeatLvlHeader.gameObject.SetActive(true);
+                //meOverText.text = "You beat the level!";
                 restartLevelButton.gameObject.SetActive(false);
             }
             else if(sceneName == "Level 3")
             {
-                gameOverText.text = "You beat the Stickler!";
+                youBeatSticklerHeader.gameObject.SetActive(true);
+                //meOverText.text = "You beat the Stickler!";
                 restartLevelButton.gameObject.SetActive(false);
                 nextLevelButton.gameObject.SetActive(false);
             }
